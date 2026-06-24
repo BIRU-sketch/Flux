@@ -1,0 +1,1 @@
+forbidden_commands=['pwd','ls']
