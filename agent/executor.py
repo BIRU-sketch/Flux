@@ -59,6 +59,3 @@ class execute:
                 return result
             except Exception as e:
                 return {'Error': str(e)}
-        
-shi=execute()
-print(shi.execute_tool('schedule_alarm',['17:54','hehehe']))
