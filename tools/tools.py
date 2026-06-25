@@ -31,6 +31,3 @@ class tools:
             return {"success": True, "title": title, "message": message}
         except Exception as e:
             return {"error": str(e)}
-
-# Test it
-print(tools().send_notification("Flux", "Task completed!"))
