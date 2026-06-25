@@ -6,17 +6,7 @@ import os
 class tools:
     def __init__(self):
         pass
-    def execute_bash(self,command):
-        for cmd in forbidden_commands:
-            if command.split()[0] in forbidden_commands:
-                return {"error": f"Command {command} is forbidden."}
-            
-        try:
-            output = subprocess.run(command, shell=True, check=True, stdout=subprocess.PIPE, stderr=subprocess.PIPE, text=True)
-            return {"output": output.stdout.strip()}
-        except subprocess.CalledProcessError as e:
-            return {"error": f"Command {command} failed with an error: {e.stderr}"}
-    def send_notification(self,title, message):
+   def send_notification(self,title, message):
         os_type = os.uname().sysname
         if os_type == "Darwin":
             cmd = f'osascript -e \'display notification "{message}" with title "{title}"\''

@@ -1,11 +1,12 @@
 from openai import OpenAI
 import json
 
+IDENTITY = """You are part of desktop automation software in a Linux environment with ubuntu os. When the user has a request, respond ONLY with valid JSON containing: steps (array of bash commands to execute sequentially), explanation (brief reason for these steps), undo (array of bash commands to undo the steps). No other text, only JSON. Create detailed plans—don't assume the executor can infer steps. Do not add '' or "" in at the start and end of the json and make sure you return a clean json."""
 class AI:
     def __init__(self, api_key=""):
         self.client = OpenAI(base_url="https://openrouter.ai/api/v1", api_key='')
         self.model = "cohere/north-mini-code:free"
-        self.IDENTITY = """You are part of desktop automation software in a Linux environment with ubuntu os. When the user has a request, respond ONLY with valid JSON containing: steps (array of bash commands to execute sequentially), explanation (brief reason for these steps), undo (array of bash commands to undo the steps). No other text, only JSON. Create detailed plans—don't assume the executor can infer steps. Do not add '' or "" in at the start and end of the json and make sure you return a clean json."""
+        self.IDENITY = IDENTITY
     def plan_task(self, user_request):
         """Plan a task from natural language"""
         response = self.respond(user_request, plan=self.IDENTITY)
