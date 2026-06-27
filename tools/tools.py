@@ -6,7 +6,7 @@ import os
 class tools:
     def __init__(self):
         pass
-   def send_notification(self,title, message):
+    def send_notification(self,title, message):
         os_type = os.uname().sysname
         if os_type == "Darwin":
             cmd = f'osascript -e \'display notification "{message}" with title "{title}"\''
