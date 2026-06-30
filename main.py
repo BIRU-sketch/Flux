@@ -7,6 +7,8 @@ from gui.backend_bridge import BackendBridge
 from gui.pages import DashboardPage
 from gui.pages import HistoryPage
 from gui.pages import DashboardPage, HistoryPage, SettingsPage, ScheduledPage, TemplatesPage
+import os
+os.environ["QT_QPA_PLATFORM"] = "wayland"
 class MainWindow(QMainWindow):
     def __init__(self, theme_manager, backend):
         super().__init__()
